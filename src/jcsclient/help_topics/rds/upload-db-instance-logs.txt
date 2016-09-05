@@ -17,4 +17,4 @@ OPTIONS :
 
 EXAMPLES:
 
- upload-db-instance-logs --db-instance-identifier salesdb
+ jcs rds upload-db-instance-logs --db-instance-identifier salesdb
