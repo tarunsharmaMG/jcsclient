@@ -12,7 +12,7 @@ OPTIONS :
     [] => optional parameters
 
     --db-instance-identifier <string> 
-        Specify the identifier of the database instance for which logs need to be uploaded to instance log bcuket.
+        Specify the identifier of the database instance for which logs need to be uploaded to instance prefix of client bucket.
 
 
 EXAMPLES:
