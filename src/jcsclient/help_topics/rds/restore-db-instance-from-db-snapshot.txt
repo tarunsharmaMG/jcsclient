@@ -17,6 +17,7 @@ SYNOPSIS :
     [--preferred-maintenance-window <string>]
     [--preferred-backup-window <string>]
     [--backup-retention-period <integer>]
+    [--log-retention-period <integer>]
 
 
 OPTIONS :
@@ -48,10 +49,13 @@ OPTIONS :
         JCS RDS retains the automated DB snapshot backups till the specified period.
         Any automated backups exceeding the cut-off days are deleted.
         Maximum days to retain: 35.
- 
+
+    [--log-retention-period <integer>]
+       Specify the number of days for which  JCS RDS must retain specific log files of the instance.
+       Supported Range: 1 -7 (days).Default:7. 
 
 EXAMPLES :
     jcs rds restore-db-instance-from-db-snapshot --db-instance-identifier restored-cli-inst --db-snapshot-identifier mysql-snapshot --db-instance-class c1.small 
 
-    jcs rds restore-db-instance-from-db-snapshot --db-instance-identifier restored-cli-inst --db-snapshot-identifier mysql-snapshot --db-instance-class c1.large
+    jcs rds restore-db-instance-from-db-snapshot --db-instance-identifier restored-cli-inst --db-snapshot-identifier mysql-snapshot --db-instance-class c1.large --log-retention-period 7
 

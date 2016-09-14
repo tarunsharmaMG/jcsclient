@@ -29,6 +29,8 @@ AVAILABLE COMMANDS :
 
     describe-db-types
 
+    upload-db-instance-logs
+
 
 To see detailed help for any command, type
     jcs rds <command> help

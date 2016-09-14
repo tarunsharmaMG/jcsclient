@@ -18,6 +18,8 @@ SYNOPSIS :
     [--preferred-maintenance-window <string>]
     [--preferred-backup-window <string>]
     [--backup-retention-period <integer>]
+    [--log-retention-period <integer>]
+    
 
 
 OPTIONS :
@@ -65,10 +67,12 @@ Specify the daily time range during which JCS can run the automated backup tasks
 Specify the number of days that JCS RDS must retain the automated database backups. JCS RDS retains the automated DB snapshot backups till the specified period. Supported Range: 0 -35 (days).
 
 
-        
+    [--log-retention-period <integer>]
+      Specify the number of days for which  JCS RDS must retain specific log files of the instance.
+      Supported Range: 1 -7 (days).Default:7. 
 
 EXAMPLES :
     jcs rds create-db-instance --db-instance-identifier ProdInventory --db-instance-class c1.small --engine MySQL --allocated-storage 20 --master-username master --master-user-password masterpass
 
-    jcs rds create-db-instance --db-instance-identifier SalesMasterData --db-instance-class c1.medium --engine MySQL --allocated-storage 20 --master-username master --master-user-password masterpass --preferred-maintenance-window SAT:21:26-SAT:21:56 --backup-retention-period 5 --preferred-backup-window 23:12-23:42
+    jcs rds create-db-instance --db-instance-identifier SalesMasterData --db-instance-class c1.medium --engine MySQL --allocated-storage 20 --master-username master --master-user-password masterpass --preferred-maintenance-window SAT:21:26-SAT:21:56 --backup-retention-period 5 --log-retention-period 7 --preferred-backup-window 23:12-23:42
 

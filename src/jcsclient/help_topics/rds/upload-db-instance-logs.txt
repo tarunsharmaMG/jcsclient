@@ -1,0 +1,20 @@
+NAME :
+    upload-db-instance-logs 
+
+DESCRIPTION :
+    Submits a request to upload logs of specified database instance to DSS. Logs would be uploaded to dss under couple of seconds after request.  
+
+SYNOPSIS :
+    upload-db-instance-logs
+    --db-instance-identifier <string>
+
+OPTIONS :
+    [] => optional parameters
+
+    --db-instance-identifier <string> 
+        Specify the identifier of the database instance for which logs need to be uploaded to instance prefix of client bucket.
+
+
+EXAMPLES:
+
+ jcs rds upload-db-instance-logs --db-instance-identifier salesdb
