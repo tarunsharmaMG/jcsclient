@@ -22,6 +22,6 @@ OPTIONS:
     The policy document for the policy
 
 EXAMPLES:
-    jcs iam create-policy --name Policy123 --policy-document "{\"name\": \"a1bc2443\", \"statement\": [{\"action\": [\"jrn:jcs:dss:ListBucket\"], \"resource\": [\"jrn:jcs:dss:012345678901:Bucket:Bucket234\"], \"effect\": \"allow\"}]}"
+    jcs iam update-policy --name Policy123 --policy-document "{\"name\": \"a1bc2443\", \"statement\": [{\"action\": [\"jrn:jcs:dss:ListBucket\"], \"resource\": [\"jrn:jcs:dss:012345678901:Bucket:Bucket234\"], \"effect\": \"allow\"}]}"
 	
-	jcs iam create-policy --id 1a4e789ac85c985b3495f3495743a5e8 --policy-document "{\"name\": \"a1bc2443\", \"statement\": [{\"action\": [\"jrn:jcs:dss:ListBucket\"], \"resource\": [\"jrn:jcs:dss:012345678901:Bucket:Bucket234\"], \"effect\": \"allow\"}]}"
+	jcs iam update-policy --id 1a4e789ac85c985b3495f3495743a5e8 --policy-document "{\"name\": \"a1bc2443\", \"statement\": [{\"action\": [\"jrn:jcs:dss:ListBucket\"], \"resource\": [\"jrn:jcs:dss:012345678901:Bucket:Bucket234\"], \"effect\": \"allow\"}]}"
