@@ -62,3 +62,5 @@ AVAILABLE COMMANDS :
 
     describe-addresses
 
+    describe-flow-log
+

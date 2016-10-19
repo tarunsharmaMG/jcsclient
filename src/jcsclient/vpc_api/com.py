@@ -359,3 +359,19 @@ def describe_addresses(url, verb, headers, version, args):
     args = parser.parse_args(args)
     vpcutils.populate_params_from_cli_args(params, args)
     return requestify.make_request(url, verb, headers, params)
+
+def describe_flow_log(url, verb, headers, version, args):
+
+    params = {}
+    params['Action'] = utils.dash_to_camelcase(args[0])
+    params['Version'] = version
+    args = args[1:]
+    parser = utils.get_argument_parser()
+    parser.add_argument('--admin-password',required=False)
+    parser.add_argument('--account-id',required=False)
+    parser.add_argument('--direction-ing',required=False)
+    parser.add_argument('--start-time',required=True)
+    parser.add_argument('--end-time',required=True)
+    args = parser.parse_args(args)
+    utils.populate_params_from_cli_args(params, args)
+    return requestify.make_request(url, verb, headers, params)
