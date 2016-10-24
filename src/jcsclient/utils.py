@@ -135,6 +135,10 @@ def underscore_to_camelcase(keyword):
     for part in parts:
         if part == 'db':
             part = 'DB'
+        elif part == 'MFA':
+            pass
+        elif part == 'mfa':
+            part = 'MFA'
         else:
             part = part.capitalize()
         keyword += part
@@ -153,6 +157,10 @@ def dash_to_camelcase(keyword):
     for part in parts:
         if part == 'db':
             part = 'DB'
+        elif part == 'MFA':
+            pass
+        elif part == 'mfa':
+            part = 'MFA'
         else:
             part = part.capitalize()
         keyword += part
