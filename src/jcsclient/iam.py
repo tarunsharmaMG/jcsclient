@@ -165,13 +165,9 @@ class Controller(object):
         params, parser, args = utility(args)
         parser.add_argument('--user-name', required = False)
         parser.add_argument('--user-id', required = False)
-        parser.add_argument('--virtual-mfa-device-name', required = False)
-        parser.add_argument('--virtual-mfa-device-id', required = False)
         args = parser.parse_args(args)
         if args.user_name is None and args.user_id is None:
             parser.error("at least one of --user-name and --user-id required")
-        if args.virtual_mfa_device_name is None and args.virtual_mfa_device_id is None:
-            parser.error("at least one of --virtual-mfa-device-name and --virtual-mfa-device-id required")
         utils.populate_params_from_cli_args(params, args)
         return requestify.make_request(self.url, self.verb, self.headers,
                                        params)
