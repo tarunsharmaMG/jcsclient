@@ -106,6 +106,36 @@ class Controller(object):
         return requestify.make_request(self.url, self.verb, self.headers,
                                        params)
 
+    def attach_policy_to_role(self, args):
+        params, parser, args = utility(args)
+        parser.add_argument('--role-name', required = False)
+        parser.add_argument('--role-id', required = False)
+        parser.add_argument('--policy-name', required = False)
+        parser.add_argument('--policy-id', required = False)
+        args = parser.parse_args(args)
+        if args.role_name is None and args.role_id is None:
+            parser.error("at least one of --role-name and --role-id required")
+        if args.policy_name is None and args.policy_id is None:
+            parser.error("at least one of --policy-name and --policy-id required")
+        utils.populate_params_from_cli_args(params, args)
+        return requestify.make_request(self.url, self.verb, self.headers,
+                                       params)
+
+    def detach_policy_from_role(self, args):
+        params, parser, args = utility(args)
+        parser.add_argument('--role-name', required = False)
+        parser.add_argument('--role-id', required = False)
+        parser.add_argument('--policy-name', required = False)
+        parser.add_argument('--policy-id', required = False)
+        args = parser.parse_args(args)
+        if args.role_name is None and args.role_id is None:
+            parser.error("at least one of --role-name and --role-id required")
+        if args.policy_name is None and args.policy_id is None:
+            parser.error("at least one of --policy-name and --policy-id required")
+        utils.populate_params_from_cli_args(params, args)
+        return requestify.make_request(self.url, self.verb, self.headers,
+                                       params)
+
     def delete_role(self, args):
         params, parser, args = utility(args)
         parser.add_argument('--name', required = False)
