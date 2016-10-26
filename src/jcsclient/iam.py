@@ -105,16 +105,22 @@ class Controller(object):
 
     def delete_role(self, args):
         params, parser, args = utility(args)
-        parser.add_argument('--id', required = True)
+        parser.add_argument('--name', required = False)
+        parser.add_argument('--id', required = False)
         args = parser.parse_args(args)
+        if args.name is None and args.id is None:
+            parser.error("at least one of --name and --id required")
         utils.populate_params_from_cli_args(params, args)
         return requestify.make_request(self.url, self.verb, self.headers,
                                        params)
 
     def get_role_summary(self, args):
         params, parser, args = utility(args)
-        parser.add_argument('--id', required = True)
+        parser.add_argument('--name', required = False)
+        parser.add_argument('--id', required = False)
         args = parser.parse_args(args)
+        if args.name is None and args.id is None:
+            parser.error("at least one of --name and --id required")
         utils.populate_params_from_cli_args(params, args)
         return requestify.make_request(self.url, self.verb, self.headers,
                                        params)
