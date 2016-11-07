@@ -78,6 +78,185 @@ class Controller(object):
                                        params)
 
 
+    def create_role(self, args):
+        params, parser, args = utility(args)
+        parser.add_argument('--name', required = True)
+        parser.add_argument('--assume-role-policy-document', required = True)
+        args = parser.parse_args(args)
+        utils.populate_params_from_cli_args(params, args)
+        return requestify.make_request(self.url, self.verb, self.headers,
+                                       params)
+
+    def update_role(self, args):
+        params, parser, args = utility(args)
+        parser.add_argument('--name', required = False)
+        parser.add_argument('--id', required = False)
+        parser.add_argument('--assume-role-policy-document', required = True)
+        args = parser.parse_args(args)
+        if args.name is None and args.id is None:
+            parser.error("at least one of --name and --id required")
+        utils.populate_params_from_cli_args(params, args)
+        return requestify.make_request(self.url, self.verb, self.headers,
+                                       params)
+
+    def list_roles(self, args):
+        params, parser, args = utility(args)
+        args = parser.parse_args(args)
+        utils.populate_params_from_cli_args(params, args)
+        return requestify.make_request(self.url, self.verb, self.headers,
+                                       params)
+
+    def attach_policy_to_role(self, args):
+        params, parser, args = utility(args)
+        parser.add_argument('--role-name', required = False)
+        parser.add_argument('--role-id', required = False)
+        parser.add_argument('--policy-name', required = False)
+        parser.add_argument('--policy-id', required = False)
+        args = parser.parse_args(args)
+        if args.role_name is None and args.role_id is None:
+            parser.error("at least one of --role-name and --role-id required")
+        if args.policy_name is None and args.policy_id is None:
+            parser.error("at least one of --policy-name and --policy-id required")
+        utils.populate_params_from_cli_args(params, args)
+        return requestify.make_request(self.url, self.verb, self.headers,
+                                       params)
+
+    def detach_policy_from_role(self, args):
+        params, parser, args = utility(args)
+        parser.add_argument('--role-name', required = False)
+        parser.add_argument('--role-id', required = False)
+        parser.add_argument('--policy-name', required = False)
+        parser.add_argument('--policy-id', required = False)
+        args = parser.parse_args(args)
+        if args.role_name is None and args.role_id is None:
+            parser.error("at least one of --role-name and --role-id required")
+        if args.policy_name is None and args.policy_id is None:
+            parser.error("at least one of --policy-name and --policy-id required")
+        utils.populate_params_from_cli_args(params, args)
+        return requestify.make_request(self.url, self.verb, self.headers,
+                                       params)
+
+    def delete_role(self, args):
+        params, parser, args = utility(args)
+        parser.add_argument('--name', required = False)
+        parser.add_argument('--id', required = False)
+        args = parser.parse_args(args)
+        if args.name is None and args.id is None:
+            parser.error("at least one of --name and --id required")
+        utils.populate_params_from_cli_args(params, args)
+        return requestify.make_request(self.url, self.verb, self.headers,
+                                       params)
+
+    def get_role_summary(self, args):
+        params, parser, args = utility(args)
+        parser.add_argument('--name', required = False)
+        parser.add_argument('--id', required = False)
+        args = parser.parse_args(args)
+        if args.name is None and args.id is None:
+            parser.error("at least one of --name and --id required")
+        utils.populate_params_from_cli_args(params, args)
+        return requestify.make_request(self.url, self.verb, self.headers,
+                                       params)
+
+    def assume_role(self, args):
+        params, parser, args = utility(args)
+        parser.add_argument('--account-id', required = True)
+        parser.add_argument('--role-name', required = True)
+        parser.add_argument('--duration-seconds', required = True)
+        args = parser.parse_args(args)
+        utils.populate_params_from_cli_args(params, args)
+        return requestify.make_request(self.url, self.verb, self.headers,
+                                       params)
+
+    def get_assumable_roles(self, args):
+        params, parser, args = utility(args)
+        args = parser.parse_args(args)
+        utils.populate_params_from_cli_args(params, args)
+        return requestify.make_request(self.url, self.verb, self.headers,
+                                       params)
+
+    def create_virtual_mfa_device(self, args):
+        params, parser, args = utility(args)
+        parser.add_argument('--name', required = True)
+        args = parser.parse_args(args)
+        utils.populate_params_from_cli_args(params, args)
+        return requestify.make_request(self.url, self.verb, self.headers,
+                                       params)
+
+    def enable_mfa_device(self, args):
+        params, parser, args = utility(args)
+        parser.add_argument('--user-name', required = False)
+        parser.add_argument('--user-id', required = False)
+        parser.add_argument('--virtual-mfa-device-name', required = False)
+        parser.add_argument('--virtual-mfa-device-id', required = False)
+        parser.add_argument('--authentication-code1', required = True)
+        parser.add_argument('--authentication-code2', required = True)
+        args = parser.parse_args(args)
+        if args.user_name is None and args.user_id is None:
+            parser.error("at least one of --user-name and --user-id required")
+        if args.virtual_mfa_device_name is None and args.virtual_mfa_device_id is None:
+            parser.error("at least one of --virtual-mfa-device-name and --virtual-mfa-device-id required")
+        utils.populate_params_from_cli_args(params, args)
+        return requestify.make_request(self.url, self.verb, self.headers,
+                                       params)
+
+    def deactivate_mfa_device(self, args):
+        params, parser, args = utility(args)
+        parser.add_argument('--user-name', required = False)
+        parser.add_argument('--user-id', required = False)
+        args = parser.parse_args(args)
+        if args.user_name is None and args.user_id is None:
+            parser.error("at least one of --user-name and --user-id required")
+        utils.populate_params_from_cli_args(params, args)
+        return requestify.make_request(self.url, self.verb, self.headers,
+                                       params)
+
+    def delete_virtual_mfa_device(self, args):
+        params, parser, args = utility(args)
+        parser.add_argument('--name', required = False)
+        parser.add_argument('--id', required = False)
+        args = parser.parse_args(args)
+        if args.name is None and args.id is None:
+            parser.error("at least one of --name and --id required")
+        utils.populate_params_from_cli_args(params, args)
+        return requestify.make_request(self.url, self.verb, self.headers,
+                                       params)
+
+    def list_virtual_mfa_devices(self, args):
+        params, parser, args = utility(args)
+        parser.add_argument('--assignment-status', required = True)
+        args = parser.parse_args(args)
+        utils.populate_params_from_cli_args(params, args)
+        return requestify.make_request(self.url, self.verb, self.headers,
+                                       params)
+
+    def resync_mfa_device(self, args):
+        params, parser, args = utility(args)
+        parser.add_argument('--user-name', required = False)
+        parser.add_argument('--user-id', required = False)
+        parser.add_argument('--virtual-mfa-device-name', required = False)
+        parser.add_argument('--virtual-mfa-device-id', required = False)
+        parser.add_argument('--authentication-code1', required = True)
+        parser.add_argument('--authentication-code2', required = True)
+        args = parser.parse_args(args)
+        if args.user_name is None and args.user_id is None:
+            parser.error("at least one of --user-name and --user-id required")
+        if args.virtual_mfa_device_name is None and args.virtual_mfa_device_id is None:
+            parser.error("at least one of --virtual-mfa-device-name and --virtual-mfa-device-id required")
+        utils.populate_params_from_cli_args(params, args)
+        return requestify.make_request(self.url, self.verb, self.headers,
+                                       params)
+
+    def get_session_token(self, args):
+        params, parser, args = utility(args)
+        parser.add_argument('--name', required = True)
+        parser.add_argument('--token-code', required = True)
+        parser.add_argument('--duration-seconds', required = True)
+        args = parser.parse_args(args)
+        utils.populate_params_from_cli_args(params, args)
+        return requestify.make_request(self.url, self.verb, self.headers,
+                                       params)
+
     def delete_user(self, args):
         params, parser, args = utility(args)
         parser.add_argument('--name', required = False)
