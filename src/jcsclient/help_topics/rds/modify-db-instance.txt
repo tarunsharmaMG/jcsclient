@@ -12,6 +12,7 @@ SYNOPSIS :
     [--backup-retention-period <integer>]
     [--preferred-backup-window <string>]
     [--preferred-maintenance-window <string>]
+    [--db-instance-class <string>]
 
 
 OPTIONS :
@@ -41,6 +42,10 @@ OPTIONS :
         Make sure to select a time period when you expect the least amount of database instance access to maximize performance.
         Format: hh24:mi- hh24:mi
         Example: 22:00-22:30
+
+    [--db-instance-class <string>]
+	Specify the class type for the database instance.
+	Example: c1.small, c1.large
         
 
 EXAMPLES :
@@ -48,3 +53,4 @@ EXAMPLES :
 
     jcs rds modify-db-instance --db-instance-identifier salesdb --new-db-instance-identifier salesdbupdated --backup-retention-period 2 --preferred-backup-window 20:12-20:42 --preferred-maintenance-window SUN:21:26-SUN:21:56
 
+    jcs rds modify-db-instance --db-instance-identifier salesdbjundec --db-instance-class c1.small
