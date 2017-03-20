@@ -1,0 +1,28 @@
+NAME
+	describe-flow-log - you can view flow log for jcs account.
+SYNOPSIS
+	describe-flow-log --start_time <start time of flow log> --end-time <End time of flow log> [--direction-ing <Direction of flow>][--admin-password <admin password>][--account-id <account id>]
+	describe-flow-log [help]
+
+DESCRIPTION
+      Describe flow log will allow user to view flow log such as sourceIp, destIp,sport,dport etc for individual or all accounts.
+
+      Mandatory arguments: --start-time --end-time --direction-ing <mandatory except admin>
+
+OPTIONS:
+       --start-time Specify start time from which you want to view log. Format of start time should be in DD-MM-YYYY HH:MM:SS.
+       --end-time Specify end time to which you want to view log. Format of end time should be in DD-MM-YYYY HH:MM:SS.
+       --admin-password this parameter is mandatory for admin other users are not authorise.
+       --direction_ing this parameter is mandatory for all except admin user. For admin this argument is mandatory when account id option is given. Specify 0 for ingress and 1 for egress
+       --account-id this argument is only valid for admin account and it is optional. Specify account id for individual account.
+
+EXAMPLES:
+      <For admin account>
+      jcs vpc describe-flow-Log  --admin-password flowlogpass --account-id acc-00000000000000000000555557777777 --direction-ing 0 --end-time "16-10-2016 19:11:10" --start-time "16-10-2016 19:06:00".
+      jcs vpc describe-flow-Log  --admin-password flowlogpass --account-id --direction-ing 1 --end-time "16-10-2016 19:11:10" --start-time "16-10-2016 19:06:00".
+      jcs vpc describe-flow-Log  --admin-password flowlogpass --end-time "16-10-2016 19:11:10" --start-time "16-10-2016 19:06:00".
+      
+      <For individual account>
+      jcs vpc describe-flow-Log  --admin-password flowlogpass --account-id --direction-ing 1 --end-time "16-10-2016 19:11:10" --start-time "16-10-2016 19:06:00".
+
+
