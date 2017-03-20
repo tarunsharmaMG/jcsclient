@@ -66,5 +66,5 @@ AVAILABLE COMMANDS :
 
     describe-flow-logs-status
 
-    describe-flow-logs
+    describe-flow-log
 

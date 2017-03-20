@@ -360,7 +360,7 @@ def describe_addresses(url, verb, headers, version, args):
     vpcutils.populate_params_from_cli_args(params, args)
     return requestify.make_request(url, verb, headers, params)
 
-def describe_flow_logs(url, verb, headers, version, args):
+def describe_flow_log(url, verb, headers, version, args):
 
     params = {}
     params['Action'] = utils.dash_to_camelcase(args[0])
