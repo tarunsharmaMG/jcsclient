@@ -64,5 +64,15 @@ AVAILABLE COMMANDS:
     detach-policy-from-resource
     get-resource-based-policy-summary
 
+    create-role
+    update-role
+    list-roles
+    delete-role
+    get-role-summary
+    assume-role
+    get-assumable-roles
+    attach-policy-to-role
+    detach-policy-from-role
+
 To see detailed help for any command, type
     jcs iam <command> help
