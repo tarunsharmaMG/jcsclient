@@ -409,3 +409,49 @@ def describe_flow_log_enable_accounts(url, verb, headers, version, args):
     args = parser.parse_args(args)
     utils.populate_params_from_cli_args(params, args)
     return requestify.make_request(url, verb, headers, params)
+
+
+
+def create_network_interface(url, verb, headers, version, args):
+
+    params = {}
+    params['Action'] = utils.dash_to_camelcase(args[0])
+    params['Version'] = version
+    args = args[1:]
+    parser = utils.get_argument_parser()
+    parser.add_argument('--subnet-id',required=True)
+    parser.add_argument('--security-group-ids', nargs='*',required=False)
+    parser.add_argument('--description',required=False)
+    args = parser.parse_args(args)
+    vpcutils.populate_params_from_cli_args(params, args)
+    return requestify.make_request(url, verb, headers, params)
+
+
+
+
+def delete_network_interface(url, verb, headers, version, args):
+
+    params = {}
+    params['Action'] = utils.dash_to_camelcase(args[0])
+    params['Version'] = version
+    args = args[1:]
+    parser = utils.get_argument_parser()
+    parser.add_argument('--network-interface-id',required=True)
+    args = parser.parse_args(args)
+    utils.populate_params_from_cli_args(params, args)
+    return requestify.make_request(url, verb, headers, params)
+
+
+
+def describe_network_interfaces(url, verb, headers, version, args):
+
+    params = {}
+    params['Action'] = utils.dash_to_camelcase(args[0])
+    params['Version'] = version
+    args = args[1:]
+    parser = utils.get_argument_parser()
+    parser.add_argument('--network-interface-ids', nargs='*', required=False)
+    args = parser.parse_args(args)
+    vpcutils.populate_params_from_cli_args(params, args)
+    return requestify.make_request(url, verb, headers, params)
+

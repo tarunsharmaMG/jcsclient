@@ -188,3 +188,18 @@ class Controller(object):
 
         return com.describe_flow_log_enable_accounts(self.url, self.verb, self.headers,
                 self.version, args)
+
+    def create_network_interface(self, args):
+
+        return com.create_network_interface(self.url, self.verb, self.headers,
+                self.version, args)
+
+    def delete_network_interface(self, args):
+
+        return com.delete_network_interface(self.url, self.verb, self.headers,
+                self.version, args)
+
+    def describe_network_interfaces(self, args):
+
+        return com.describe_network_interfaces(self.url, self.verb, self.headers,
+                self.version, args)
