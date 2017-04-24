@@ -169,3 +169,37 @@ class Controller(object):
         return com.describe_addresses(self.url, self.verb, self.headers,
                 self.version, args)
 
+    def describe_flow_log(self, args):
+
+        return com.describe_flow_log(self.url, self.verb, self.headers,
+                self.version, args)
+
+    def enable_flow_logs(self, args):
+
+        return com.enable_flow_logs(self.url, self.verb, self.headers,
+                self.version, args)
+
+    def describe_flow_logs_status(self, args):
+
+        return com.describe_flow_logs_status(self.url, self.verb, self.headers,
+                self.version, args)
+
+    def describe_flow_log_enable_accounts(self, args):
+
+        return com.describe_flow_log_enable_accounts(self.url, self.verb, self.headers,
+                self.version, args)
+
+    def create_network_interface(self, args):
+
+        return com.create_network_interface(self.url, self.verb, self.headers,
+                self.version, args)
+
+    def delete_network_interface(self, args):
+
+        return com.delete_network_interface(self.url, self.verb, self.headers,
+                self.version, args)
+
+    def describe_network_interfaces(self, args):
+
+        return com.describe_network_interfaces(self.url, self.verb, self.headers,
+                self.version, args)

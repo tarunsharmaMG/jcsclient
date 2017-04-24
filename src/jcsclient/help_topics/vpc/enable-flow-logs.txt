@@ -1,0 +1,19 @@
+NAME
+      enable-flow-logs - Enable/Disable flow logs
+
+SYNOPSIS
+      enable-flow-logs --flow-logging <True/False>
+      enable-flow-logs [help]
+
+DESCRIPTION
+       Enable/Disable flow logs and write to dss.
+
+       Mandatory arguments: flow-logging
+
+
+OPTIONS :
+       --flow-logging True to enable the log and False to disable the logs
+
+EXAMPLES :
+       jcs vpc enable-flow-logs --flow-logging True
+

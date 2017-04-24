@@ -1,0 +1,19 @@
+NAME
+      describe-flow-logs-status - Describe status of flow logs
+
+SYNOPSIS
+      describe-flow-logs-status
+      describe-flow-logs-status [help]
+
+DESCRIPTION
+       It will describe flow log status.
+
+       Mandatory arguments: None
+
+
+OPTIONS :
+       None
+
+EXAMPLES :
+       jcs vpc describe-flow-logs-status
+
