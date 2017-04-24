@@ -205,6 +205,33 @@ def delete_snapshot(SnapshotId):
     }
     return common.do_compute_request(valid_optional_params, optional_params, mandatory_params)
 
+def attach_network_interface(InstanceId,NetworkInteraceId,DeviceIndex,ProjectIdCustomer,AuthTokenCustomer):
+    """DescribeSnapshots API wrapper."""
+    valid_optional_params = []
+    optional_params = {
+        'ProjectIdCustomer': ProjectIdCustomer,
+        'AuthTokenCustomer': AuthTokenCustomer,
+    }
+    mandatory_params = {
+        'Action': 'AttachNetworkInterface',
+        'InstanceId': InstanceId,
+        'NetworkInteraceId': NetworkInteraceId,
+        'DeviceIndex': DeviceIndex,
+    }
+    return common.do_compute_request(valid_optional_params, optional_params, mandatory_params)
+
+def detach_network_interface(AttachmentId,ProjectIdRds):
+    """DescribeSnapshots API wrapper."""
+    valid_optional_params = []
+    optional_params = {
+        'ProjectIdRds': ProjectIdRds,
+    }
+    mandatory_params = {
+        'Action': 'DetachNetworkInterface',
+        'AttachmentId': AttachmentId,
+    }
+    return common.do_compute_request(valid_optional_params, optional_params, mandatory_params)
+
 # =============== VPC =================
 
 def describe_vpcs():

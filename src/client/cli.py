@@ -75,7 +75,7 @@ vpc_help = {
         'AuthorizeSecurityGroupEgress ' : "--GroupId <groupId> --IpPermissions.N.IpProtocol <protocol> --IpPermissions.N.ToPort <Port> --IpPermissions.N.FromPort <Port> [--IpPermissions.N.IpRanges.N.CidrIp <cidrIp> | --IpPermissions.N.Groups.1.GroupIp <groupId>]                          ",
         'RevokeSecurityGroupIngress   ' : "--GroupId <groupId> --IpPermissions.N.IpProtocol <protocol> --IpPermissions.N.ToPort <Port> --IpPermissions.N.FromPort <Port> [--IpPermissions.N.IpRanges.N.CidrIp <cidrIp> | --IpPermissions.N.Groups.1.GroupIp <groupId>]                          ",
         'RevokeSecurityGroupEgress    ' : "--GroupId <groupId> --IpPermissions.N.IpProtocol <protocol> --IpPermissions.N.ToPort <Port> --IpPermissions.N.FromPort <Port> [--IpPermissions.N.IpRanges.N.CidrIp <cidrIp> | --IpPermissions.N.Groups.1.GroupIp <groupId>]                          ",
-  
+
         'DescribeSecurityGroups       ' : "[--SecurityGroupId.N <securityGroupId>                                                               ",
         'DeleteSecurityGroup          ' : "--SecurityGroupId <securityGroupId>                                                                  ",
         'CreateRoute                  ' : "--DestinationCidrBlock <destinationCidrBlock> --RouteTableId <routeTableId> --InstanceId <instanceId> ",
@@ -120,6 +120,8 @@ compute_help = {
         'DescribeSnapshots            ' : "[--SnapshotId.N <snapshot_id>] [--MaxResults <integer>] [--NextToken <snapshot_id>] [--Detail <True | False>]",
         'CreateSnapshot               ' : "--VolumeId <volume_id>",
         'DeleteSnapshot               ' : "--SnapshotId <snapshot_id>",
+        'AttachNetworkInterface       ' : "[--InstanceId <instance_id>] [--NetworkInterfaceId <network_interface_id>] [--DeviceIndex <device_index>]  [--ProjectIdCustomer <project_id_customer>]  [--AuthTokenCustomer <auth_token_customer>]",
+        'DetachNetworkInterface       ' : "[--AttachmentId <attachment_id>] [--ProjectIdCustomer <project_id_customer>]",
 
 }
 
@@ -177,7 +179,7 @@ def main(argv=sys.argv):
         elif argv[-1] == 'compute':
             for row in compute_help:
                 print row, 'jcs compute ' + row.strip() + ' ' + compute_help[row]
-        
+
         elif argv[-1] == 'vpc':
             for row in vpc_help:
                 print row, 'jcs vpc ' + row.strip() + ' ' + vpc_help[row]
